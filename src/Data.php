@@ -2,7 +2,8 @@
 
 namespace gist_it_php;
 
-class UrlData {
+class Data
+{
 
     private $user;
     private $repository;
@@ -11,7 +12,11 @@ class UrlData {
     private $filename;
 
     public function __construct(
-        string $user, string $repository, string $branch, string $filepath, string $filename
+        string $user,
+        string $repository,
+        string $branch,
+        string $filepath,
+        string $filename
     ) {
 
         $this->user       = $user;
@@ -21,28 +26,39 @@ class UrlData {
         $this->filename   = $filename;
     }
 
-    public function getUser():string {
+    public function getUser():string
+    {
 
         return $this->user;
     }
 
-    public function getRepository():string {
+    public function getRepository():string
+    {
 
         return $this->repository;
     }
 
-    public function getBranch():string {
+    public function getBranch():string
+    {
 
         return $this->branch;
     }
 
-    public function getFilePath():string {
+    public function getFilePath():string
+    {
 
         return $this->filepath;
     }
 
-    public function getFileName():string {
+    public function getFileName():string
+    {
 
         return $this->filename;
+    }
+
+    public function getUrl(string $type = 'blob'):string
+    {
+
+       return "https://github.com/{$this->user}/{$this->repository}/{$type}/{$this->branch}/{$this->filepath}";
     }
 }
