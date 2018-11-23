@@ -2,7 +2,7 @@
 
 namespace gist_it_php;
 
-class Request
+class RequestFile
 {
     private const SERVICE_DOMAIN = "https://github.com/";
 

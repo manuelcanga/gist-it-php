@@ -9,11 +9,11 @@ class Template
 {
 
     /**
-     * @var Request
+     * @var RequestFile
      */
     private $request;
 
-    public function __construct(Request $request)
+    public function __construct(RequestFile $request)
     {
 
         $this->request = $request;
