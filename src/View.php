@@ -66,10 +66,11 @@ class View
         $var = $tag[ 'var' ];
         $method = "get{$var}";
 
-        return $this->addJSNewLines( $this->template->$method() );
+        return $this->addJSNewLines($this->template->$method());
     }
 
-    private function addJSNewLines(string $string_with_html_newlines) {
-        return preg_replace('%\n%', '\n', $string_with_html_newlines );
+    private function addJSNewLines(string $string_with_html_newlines)
+    {
+        return preg_replace('%\n%', '\n', $string_with_html_newlines);
     }
 }

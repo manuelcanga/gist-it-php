@@ -4,6 +4,7 @@ namespace gist_it_php;
 
 class Request
 {
+    private const SERVICE_DOMAIN = "https://github.com/";
 
     private $user;
     private $repository;
@@ -56,9 +57,10 @@ class Request
         return $this->filename;
     }
 
-    public function getUrl(string $type = 'blob'):string
+    public function getServiceUrl(string $type = 'blob'):string
     {
+        $subpath = "{$this->user}/{$this->repository}/{$type}/{$this->branch}/{$this->filepath}";
 
-       return "https://github.com/{$this->user}/{$this->repository}/{$type}/{$this->branch}/{$this->filepath}";
+        return self::SERVICE_DOMAIN.$subpath;
     }
 }

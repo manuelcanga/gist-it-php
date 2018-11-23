@@ -39,26 +39,29 @@ class Template
     public function getSource(): string
     {
 
-        return file_get_contents($this->getRawUrl() )?: '';
+        return file_get_contents($this->getRawUrl())?: '';
     }
 
-    public function getRawUrl(): string {
-        return $this->request->getUrl('raw');
+    public function getRawUrl(): string
+    {
+        return $this->request->getServiceUrl('raw');
     }
 
-    public function getBlobUrl(): string {
-        return $this->request->getUrl('blob');
+    public function getBlobUrl(): string
+    {
+        return $this->request->getServiceUrl('blob');
     }
 
-    public function getFileName(): string {
+    public function getFileName(): string
+    {
         return $this->request->getFileName();
     }
 
-    public function getHost(): string {
+    public function getHost(): string
+    {
         $protocol = $_SERVER['HTTPS']? 'https' : 'http';
         $domain = $_SERVER['HTTP_HOST'];
 
         return "{$protocol}://{$domain}";
     }
-
 }
