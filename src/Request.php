@@ -2,7 +2,7 @@
 
 namespace gist_it_php;
 
-class Data
+class Request
 {
 
     private $user;

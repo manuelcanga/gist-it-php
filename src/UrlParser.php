@@ -41,21 +41,21 @@ class UrlParser {
         return new UrlParser( $_SERVER[ 'REQUEST_URI' ]??'' );
     }
 
-    public function extractData():UrlData {
+    public function extractRequest():Request {
 
         $url_path = array_filter( \explode( self::PATH_SEPARATOR, $this->url ) );
 
-        return $this->createUrlData( ...$url_path );
+        return $this->createRequest( ...$url_path );
     }
 
-    private function createUrlData(
+    private function createRequest(
         string $user, string $repository, string $output, string $branch, string ...$splited_filepath
-    ):UrlData {
+    ):Request {
 
         $filepath = implode( self::PATH_SEPARATOR, $splited_filepath );
         $filename = end( $splited_filepath );
 
-        return new UrlData( $user, $repository, $branch, $filepath, $filename );
+        return new Request( $user, $repository, $branch, $filepath, $filename );
     }
 
     public function getUrl():string {
