@@ -2,9 +2,6 @@
 
 namespace gist_it_php;
 
-use function file_exists;
-use function file_get_contents;
-
 /**
  * Class View
  *

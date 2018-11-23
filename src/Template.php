@@ -2,9 +2,6 @@
 
 namespace gist_it_php;
 
-use function file_get_contents;
-use function nl2br;
-
 class Template
 {
 
@@ -39,7 +36,15 @@ class Template
     public function getSource(): string
     {
 
-        return file_get_contents($this->getRawUrl())?: '';
+        $source = file_get_contents($this->getRawUrl())?: '';
+
+        return $this->sanitize_source( $source );
+    }
+
+    private function sanitize_source( string $source ): string {
+        $source = addslashes( $source );
+
+        return htmlentities( $source, ENT_QUOTES | ENT_IGNORE, "UTF-8" );
     }
 
     public function getRawUrl(): string
