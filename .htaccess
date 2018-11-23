@@ -1,3 +1,9 @@
+# Access from any domain
+<IfModule mod_headers.c>
+    Header set Access-Control-Allow-Origin "*"
+</IfModule>
+
+# All to index.php
 RewriteEngine on
-RewriteBase /
+RewriteBase /gist-it-php/
 RewriteRule ^(.+)$ index.php [NC]
