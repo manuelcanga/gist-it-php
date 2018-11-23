@@ -5,5 +5,5 @@
 
 # All to index.php
 RewriteEngine on
-RewriteBase /gist-it-php/
+RewriteBase /
 RewriteRule ^(.+)$ index.php [NC]
