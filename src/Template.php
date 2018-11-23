@@ -59,7 +59,7 @@ class Template
 
     public function getHost(): string
     {
-        $protocol = $_SERVER['HTTPS']? 'https' : 'http';
+        $protocol = ( 443 === $_SERVER['SERVER_PORT'])? 'https' : 'http';
         $domain = $_SERVER['HTTP_HOST'];
 
         return "{$protocol}://{$domain}";
