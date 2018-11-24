@@ -16,7 +16,7 @@ class Template
         $this->request = $request;
     }
 
-    public function getCode(): string
+    public function getCode():string
     {
 
         $view = new View('code', $this);
@@ -24,7 +24,7 @@ class Template
         return $view->parse();
     }
 
-    public function getMeta(): string
+    public function getMeta():string
     {
 
         $view = new View('meta', $this);
@@ -32,40 +32,47 @@ class Template
         return $view->parse();
     }
 
-
-    public function getSource(): string
+    public function getSource():string
     {
 
-        $source = file_get_contents($this->getRawUrl())?: '';
-
-        return $this->sanitize_source( $source );
+        return $this->request->getSource();
     }
 
-    private function sanitize_source( string $source ): string {
-        $source = addslashes( $source );
-
-        return htmlentities( $source, ENT_QUOTES | ENT_IGNORE, "UTF-8" );
-    }
-
-    public function getRawUrl(): string
+    public function getRawUrl():string
     {
-        return $this->request->getServiceUrl('raw');
+
+        return $this->request->getRawUrl();
     }
 
-    public function getBlobUrl(): string
+    public function getBlobUrl():string
     {
-        return $this->request->getServiceUrl('blob');
+
+        return $this->request->getBlobUrl();
     }
 
-    public function getFileName(): string
+    public function getGutter(): string
     {
+        $line_number = $this->request->getFileLineNumber();
+
+        $gutter = '';
+        for ($i = 0; $i < $line_number; $i++) {
+            $gutter .= $i.'<br />';
+        }
+
+        return $gutter;
+    }
+
+    public function getFileName():string
+    {
+
         return $this->request->getFileName();
     }
 
-    public function getHost(): string
+    public function getHost():string
     {
-        $protocol = ( 443 === $_SERVER['SERVER_PORT'])? 'https' : 'http';
-        $domain = $_SERVER['HTTP_HOST'];
+
+        $protocol = ( 443 === $_SERVER[ 'SERVER_PORT' ] ) ? 'https' : 'http';
+        $domain   = $_SERVER[ 'HTTP_HOST' ];
 
         return "{$protocol}://{$domain}";
     }

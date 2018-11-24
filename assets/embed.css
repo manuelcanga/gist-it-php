@@ -3,9 +3,24 @@
     margin: 0;
 }
 
+.gist-it-gist .gist-gutter, .gist-it-gist .gist-file {
+    font-family: Consolas,"Liberation Mono",Courier,monospace;
+    font-size: 12px;
+    line-height: 23px;
+}
+
+.gist-it-gist .gist-gutter {
+    float: left;
+    color: #6a737d;
+    text-align: center;
+    width: 50px;
+    margin-right: 10px;
+
+    border-right: 1px solid #DEDEDE;
+}
+
 .gist-it-gist .gist-file {
     border: 1px solid #DEDEDE;
-    font-family: Consolas,"Liberation Mono",Courier,monospace;
     margin-bottom: 1em;
 }
 
@@ -13,13 +28,14 @@
     background-color: #EAEAEA;
     color: #666666;
     font-family: Helvetica,arial,freesans,clean,sans-serif;
-    font-size: 85%;
+    font-size: 14px;
     overflow: hidden;
     padding: 0.5em;
 }
 
 .gist-it-gist .gist-file .gist-meta a {
     color: #336699;
+    font-size: 14px;
 }
 
 .gist-it-gist .gist-file .gist-meta a:visited {
