@@ -1,59 +1,58 @@
 .gist-it-gist div {
-    padding: 0;
-    margin: 0;
+   padding: 0;
+   margin: 0;
 }
 
 .gist-it-gist .gist-gutter, .gist-it-gist .gist-file {
-    font-family: Consolas,"Liberation Mono",Courier,monospace;
-    font-size: 12px;
-    line-height: 23px;
+   font-family: Consolas, "Liberation Mono", Courier, monospace;
+   font-size: 12px;
+   line-height: 23px;
 }
 
 .gist-it-gist .gist-gutter {
-    float: left;
-    color: #6a737d;
-    text-align: center;
-    width: 50px;
-    margin-right: 10px;
-
-    border-right: 1px solid #DEDEDE;
+   float: left;
+   color: #6a737d;
+   text-align: center;
+   width: 50px;
+   margin-right: 10px;
+   border-right: 1px solid #dedede;
 }
 
 .gist-it-gist .gist-file {
-    border: 1px solid #DEDEDE;
-    margin-bottom: 1em;
+   border: 1px solid #dedede;
+   margin-bottom: 1em;
 }
 
 .gist-it-gist .gist-file .gist-meta {
-    background-color: #EAEAEA;
-    color: #666666;
-    font-family: Helvetica,arial,freesans,clean,sans-serif;
-    font-size: 14px;
-    overflow: hidden;
-    padding: 0.5em;
+   background-color: #f2f2f2;
+   color: #666;
+   font-family: Helvetica, arial, freesans, clean, sans-serif;
+   font-size: 14px;
+   overflow: hidden;
+   padding: 0.5em;
 }
 
 .gist-it-gist .gist-file .gist-meta a {
-    color: #336699;
-    font-size: 14px;
+   color: #369;
+   font-size: 14px;
 }
 
 .gist-it-gist .gist-file .gist-meta a:visited {
-    color: #773377;
+   color: #737;
 }
 
 .gist-it-gist .gist-file .gist-data {
-    background-color: #F8F8FF;
-    border-bottom: 1px solid #DDDDDD;
-    font-size: 100%;
-    overflow: auto;
-    word-wrap: normal;
+   background-color: #fbfbfb;
+   border-bottom: 1px solid #ddd;
+   font-size: 100%;
+   overflow: auto;
+   word-wrap: normal;
 }
 
 .gist-it-gist .gist-file .gist-data pre {
-    background: none repeat scroll 0 0 transparent !important;
-    border: medium none !important;
-    font-family: Consolas,"Liberation Mono",Courier,monospace;
-    margin: 0 !important;
-    padding: 0 !important;
+   background: none repeat scroll 0 0 transparent !important;
+   border: medium none !important;
+   font-family: Consolas, "Liberation Mono", Courier, monospace;
+   margin: 0 !important;
+   padding: 0 !important;
 }
