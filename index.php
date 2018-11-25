@@ -1,18 +1,29 @@
 <?php
 
-const _APP_= __DIR__;
+namespace gist_it_php;
 
-require(_APP_.'/src/UrlParser.php');
-require( _APP_ . '/src/RequestFile.php' );
-require(_APP_.'/src/Template.php');
-require(_APP_.'/src/View.php');
+const _APP_ = __DIR__;
 
-use gist_it_php\{Template, View, RequestFile, UrlParser};
+require(_APP_ . '/src/Cache.php');
+require(_APP_ . '/src/UrlParser.php');
+require(_APP_ . '/src/RequestFile.php');
+require(_APP_ . '/src/Template.php');
+require(_APP_ . '/src/View.php');
 
-$url_data = UrlParser::fromCurrentUrl()->getRequestFile();
+$request_file = UrlParser::fromCurrentUrl()->getRequestFile();
 
-$template = new Template($url_data);
+$cache = Cache::fromRequestFIle($request_file);
 
-$view = new View('embed', $template);
+if (! $cache->exists()) {
+    $template = new Template($request_file);
 
-echo $view->parse();
+    $view = new View('embed', $template);
+
+    $content = $view->parse();
+
+    $cache->save($content);
+} else {
+    $content = $cache->get();
+}
+
+echo $content;
