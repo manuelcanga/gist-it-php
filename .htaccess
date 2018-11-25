@@ -6,4 +6,5 @@
 # All to index.php
 RewriteEngine on
 RewriteBase /
+RewriteCond %{REQUEST_FILENAME} !^(.+)\.html$
 RewriteRule ^(.+)$ index.php [NC]
