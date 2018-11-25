@@ -15,11 +15,11 @@ $request_file = UrlParser::fromCurrentUrl()->getRequestFile();
 $cache = Cache::fromRequestFIle($request_file);
 
 if (! $cache->exists()) {
-    $template = new Embed($request_file);
+    $embed = new Embed($request_file);
 
-    $embed = $template->get();
+    $embed_code = $embed->get();
 } else {
-    $embed = $cache->get();
+    $embed_code = $cache->get();
 }
 
-echo $embed;
+echo $embed_code;
