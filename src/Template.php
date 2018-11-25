@@ -32,6 +32,12 @@ class Template
         return $view->parse();
     }
 
+    public function getEmbed(): string {
+        $view = new View('embed', $this);
+
+        return $view->parse();
+    }
+
     public function getSource():string
     {
 

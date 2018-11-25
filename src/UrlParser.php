@@ -10,6 +10,7 @@ use const FILTER_FLAG_PATH_REQUIRED;
  */
 class UrlParser
 {
+
     private const TEST_DOMAIN = 'https://trasweb.net';
 
     /**
@@ -41,21 +42,21 @@ class UrlParser
 
     private function sanitizeUrl(string $url):string
     {
+
         $url = \parse_url($url, PHP_URL_PATH);
         $url = \strip_tags($url);
 
-
-        $is_valid_url =  filter_var(self::TEST_DOMAIN. $url, FILTER_VALIDATE_URL, FILTER_FLAG_PATH_REQUIRED);
-        if (!$is_valid_url) {
+        $is_valid_url = filter_var(self::TEST_DOMAIN . $url, FILTER_VALIDATE_URL, FILTER_FLAG_PATH_REQUIRED);
+        if (! $is_valid_url) {
             $this->urlIsNotValid();
         }
-
 
         return $url;
     }
 
     private function urlIsNotValid()
     {
+
         throw new \Exception("Url is not valid");
     }
 

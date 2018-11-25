@@ -17,13 +17,9 @@ $cache = Cache::fromRequestFIle($request_file);
 if (! $cache->exists()) {
     $template = new Template($request_file);
 
-    $view = new View('embed', $template);
-
-    $content = $view->parse();
-
-    $cache->save($content);
+    $embed = $template->getEmbed();
 } else {
-    $content = $cache->get();
+    $embed = $cache->get();
 }
 
-echo $content;
+echo $embed;
