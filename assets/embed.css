@@ -1,15 +1,15 @@
-.gist-it-gist div {
+.gist-it-php div {
    padding: 0;
    margin: 0;
 }
 
-.gist-it-gist .gist-gutter, .gist-it-gist .gist-file {
+.gist-it-php .gist-gutter, .gist-it-php .gist-file {
    font-family: Consolas, "Liberation Mono", Courier, monospace;
    font-size: 12px;
    line-height: 23px;
 }
 
-.gist-it-gist .gist-gutter {
+.gist-it-php .gist-gutter {
    float: left;
    color: #6a737d;
    text-align: center;
@@ -18,12 +18,12 @@
    border-right: 1px solid #dedede;
 }
 
-.gist-it-gist .gist-file {
+.gist-it-php .gist-file {
    border: 1px solid #dedede;
    margin-bottom: 1em;
 }
 
-.gist-it-gist .gist-file .gist-meta {
+.gist-it-php .gist-file .gist-meta {
    background-color: #f2f2f2;
    color: #666;
    font-family: Helvetica, arial, freesans, clean, sans-serif;
@@ -32,16 +32,32 @@
    padding: 0.5em;
 }
 
-.gist-it-gist .gist-file .gist-meta a {
+.gist-it-php .gist-meta a {
    color: #369;
    font-size: 14px;
 }
 
-.gist-it-gist .gist-file .gist-meta a:visited {
+.gist-it-php .gist-file .gist-meta a:visited {
    color: #737;
 }
 
-.gist-it-gist .gist-file .gist-data {
+.gist-it-php .raw-link {
+   float: right;
+   /** avoid conflicts with host page */
+   color: #369 !important;
+}
+
+.gist-it-php .blob-link {
+   float: right;
+   margin-right: 8px;
+}
+
+.gist-it-php .blob-link a{
+   /** avoid conflicts with host page */
+   color: #666 !important;
+}
+
+.gist-it-php .gist-file .gist-data {
    background-color: #fbfbfb;
    border-bottom: 1px solid #ddd;
    font-size: 100%;
@@ -49,7 +65,7 @@
    word-wrap: normal;
 }
 
-.gist-it-gist .gist-file .gist-data pre {
+.gist-it-php .gist-file .gist-data pre {
    background: none repeat scroll 0 0 transparent !important;
    border: medium none !important;
    font-family: Consolas, "Liberation Mono", Courier, monospace;
