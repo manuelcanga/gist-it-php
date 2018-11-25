@@ -41,9 +41,9 @@ class Cache
         return '';
     }
 
-    public function save(string $cache)
+    public function save(string $content_for_caching)
     {
 
-        return \file_put_contents($this->file, $cache);
+        return \file_put_contents($this->file, $content_for_caching);
     }
 }
