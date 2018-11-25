@@ -2,12 +2,15 @@
 
 namespace gist_it_php;
 
+use const FILTER_FLAG_PATH_REQUIRED;
+
 /**
  * Transform url
  * Class Url
  */
 class UrlParser
 {
+    private const TEST_DOMAIN = 'https://trasweb.net';
 
     /**
      * @var string
@@ -19,21 +22,6 @@ class UrlParser
      */
     private $url;
 
-    public function __construct(string $url)
-    {
-
-        $this->url = $this->sanitizeUrl($url);
-    }
-
-    private function sanitizeUrl(string $url):string
-    {
-
-        $url = \parse_url($url, PHP_URL_PATH);
-        $url = \strip_tags($url);
-
-        return $url;
-    }
-
     /**
      * Named constructor using current url.
      *
@@ -43,6 +31,32 @@ class UrlParser
     {
 
         return new UrlParser($_SERVER[ 'REQUEST_URI' ]??'');
+    }
+
+    public function __construct(string $url)
+    {
+
+        $this->url = $this->sanitizeUrl($url);
+    }
+
+    private function sanitizeUrl(string $url):string
+    {
+        $url = \parse_url($url, PHP_URL_PATH);
+        $url = \strip_tags($url);
+
+
+        $is_valid_url =  filter_var(self::TEST_DOMAIN. $url, FILTER_VALIDATE_URL, FILTER_FLAG_PATH_REQUIRED);
+        if (!$is_valid_url) {
+            $this->urlIsNotValid();
+        }
+
+
+        return $url;
+    }
+
+    private function urlIsNotValid()
+    {
+        throw new \Exception("Url is not valid");
     }
 
     public function getRequestFile():RequestFile
