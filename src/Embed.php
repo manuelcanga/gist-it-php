@@ -2,18 +2,22 @@
 
 namespace gist_it_php;
 
+/**
+ * Class with methods for template view pattern
+ *
+ */
 class Embed
 {
 
     /**
      * @var RequestFile
      */
-    private $request;
+    private $request_file;
 
-    public function __construct(RequestFile $request)
+    public function __construct(RequestFile $request_file)
     {
 
-        $this->request = $request;
+        $this->request_file = $request_file;
     }
 
     public function getCode():string
@@ -41,24 +45,24 @@ class Embed
     public function getSource():string
     {
 
-        return $this->request->getSource();
+        return $this->request_file->getSource();
     }
 
     public function getRawUrl():string
     {
 
-        return $this->request->getRawUrl();
+        return $this->request_file->getRawUrl();
     }
 
     public function getBlobUrl():string
     {
 
-        return $this->request->getBlobUrl();
+        return $this->request_file->getBlobUrl();
     }
 
     public function getGutter(): string
     {
-        $line_number = $this->request->getFileLineNumber();
+        $line_number = $this->request_file->getFileLineNumber();
 
         $gutter = '';
         for ($i = 0; $i < $line_number; $i++) {
@@ -71,7 +75,7 @@ class Embed
     public function getFileName():string
     {
 
-        return $this->request->getFileName();
+        return $this->request_file->getFileName();
     }
 
     public function getHost():string
