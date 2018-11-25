@@ -2,7 +2,7 @@
 
 namespace gist_it_php;
 
-class Template
+class Embed
 {
 
     /**
@@ -28,6 +28,12 @@ class Template
     {
 
         $view = new View('meta', $this);
+
+        return $view->parse();
+    }
+
+    public function get(): string {
+        $view = new View('embed', $this);
 
         return $view->parse();
     }

@@ -19,11 +19,11 @@ class View
     private $content;
 
     /**
-     * @var Template
+     * @var Embed
      */
     private $template;
 
-    public function __construct(string $view_name, Template $template)
+    public function __construct(string $view_name, Embed $template)
     {
 
         $this->template = $template;
