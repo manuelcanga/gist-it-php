@@ -9,6 +9,10 @@ namespace gist_it_php;
 class Embed
 {
 
+    private const EMBED_VIEW = 'embed';
+    private const CODE_VIEW  = 'code';
+    private const META_VIEW  = 'meta';
+
     /**
      * @var RequestFile
      */
@@ -23,7 +27,7 @@ class Embed
     public function getEmbedCode():string
     {
 
-        $view = new View('embed', $this);
+        $view = new View(self::EMBED_VIEW, $this);
 
         return $view->parse();
     }
@@ -31,7 +35,7 @@ class Embed
     public function getCode():string
     {
 
-        $view = new View('code', $this);
+        $view = new View(self::CODE_VIEW, $this);
 
         return $view->parse();
     }
@@ -39,7 +43,7 @@ class Embed
     public function getMeta():string
     {
 
-        $view = new View('meta', $this);
+        $view = new View(self::META_VIEW, $this);
 
         return $view->parse();
     }
