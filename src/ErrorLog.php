@@ -7,6 +7,7 @@ class ErrorLog
 
     private function __construct()
     {
+        \error_reporting(E_ALL);
 
         set_error_handler(function (...$args) {
 

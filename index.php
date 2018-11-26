@@ -21,8 +21,8 @@ if ($cache->exists()) {
     $embed_code = $cache->get();
 } else {
     $embed = new Embed($request_file);
-
     $embed_code = $embed->getEmbedCode();
+    $cache->save($embed_code);
 }
 
 echo $embed_code;
