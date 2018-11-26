@@ -55,6 +55,7 @@
 .gist-it-php .blob-link a{
    /** avoid conflicts with host page */
    color: #666 !important;
+   text-decoration: none !important;
 }
 
 .gist-it-php .gist-file .gist-data {
