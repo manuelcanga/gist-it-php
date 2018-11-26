@@ -4,11 +4,14 @@ namespace gist_it_php;
 
 const _APP_ = __DIR__;
 
+require(_APP_ . '/src/ErrorLog.php');
 require(_APP_ . '/src/Cache.php');
 require(_APP_ . '/src/UrlParser.php');
 require(_APP_ . '/src/RequestFile.php');
 require(_APP_ . '/src/Embed.php');
 require(_APP_ . '/src/View.php');
+
+$error_log = ErrorLog::create();
 
 $request_file = UrlParser::fromCurrentUrl()->getRequestFile();
 
