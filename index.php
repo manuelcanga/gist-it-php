@@ -14,12 +14,12 @@ $request_file = UrlParser::fromCurrentUrl()->getRequestFile();
 
 $cache = Cache::fromRequestFIle($request_file);
 
-if (! $cache->exists()) {
+if ($cache->exists()) {
+    $embed_code = $cache->get();
+} else {
     $embed = new Embed($request_file);
 
-    $embed_code = $embed->get();
-} else {
-    $embed_code = $cache->get();
+    $embed_code = $embed->getEmbedCode();
 }
 
 echo $embed_code;

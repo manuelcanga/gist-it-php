@@ -20,6 +20,14 @@ class Embed
         $this->request_file = $request_file;
     }
 
+    public function getEmbedCode():string
+    {
+
+        $view = new View('embed', $this);
+
+        return $view->parse();
+    }
+
     public function getCode():string
     {
 
@@ -32,12 +40,6 @@ class Embed
     {
 
         $view = new View('meta', $this);
-
-        return $view->parse();
-    }
-
-    public function get(): string {
-        $view = new View('embed', $this);
 
         return $view->parse();
     }
@@ -60,13 +62,14 @@ class Embed
         return $this->request_file->getBlobUrl();
     }
 
-    public function getGutter(): string
+    public function getGutter():string
     {
+
         $line_number = $this->request_file->getFileLineNumber();
 
         $gutter = '';
         for ($i = 0; $i < $line_number; $i++) {
-            $gutter .= $i.'<br />';
+            $gutter .= $i . '<br />';
         }
 
         return $gutter;
@@ -81,7 +84,7 @@ class Embed
     public function getHost():string
     {
 
-        $protocol = ( 443 === $_SERVER[ 'SERVER_PORT' ] ) ? 'https' : 'http';
+        $protocol = (443 === $_SERVER[ 'SERVER_PORT' ]) ? 'https' : 'http';
         $domain   = $_SERVER[ 'HTTP_HOST' ];
 
         return "{$protocol}://{$domain}";
