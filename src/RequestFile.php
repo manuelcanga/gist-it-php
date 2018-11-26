@@ -7,7 +7,9 @@ use function substr_count;
 class RequestFile
 {
 
-    private const SERVICE_DOMAIN = "https://github.com/";
+    private const  SERVICE_DOMAIN = "https://github.com/";
+    private const  RAW_LINK       = 'raw';
+    private const  BLOB_LINK      = 'blog';
 
     private $user;
     private $repository;
@@ -65,16 +67,16 @@ class RequestFile
     public function getRawUrl():string
     {
 
-        return $this->getUrl('raw');
+        return $this->getUrl(self::RAW_LINK);
     }
 
     public function getBlobUrl():string
     {
 
-        return $this->getUrl('blob');
+        return $this->getUrl(self::BLOB_LINK);
     }
 
-    public function getUrl(string $type = 'blob'):string
+    public function getUrl(string $type = self::BLOB_LINK):string
     {
 
         $subpath = "{$this->user}/{$this->repository}/{$type}/{$this->branch}/{$this->filepath}";
