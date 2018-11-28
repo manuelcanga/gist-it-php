@@ -9,7 +9,7 @@ class RequestFile
 
     private const  SERVICE_DOMAIN = "https://github.com/";
     private const  RAW_LINK       = 'raw';
-    private const  BLOB_LINK      = 'blog';
+    private const  BLOB_LINK      = 'blob';
 
     private $user;
     private $repository;
