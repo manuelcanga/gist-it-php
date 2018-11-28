@@ -6,7 +6,7 @@
 .gist-it-php .gist-gutter, .gist-it-php .gist-file {
    font-family: Consolas, "Liberation Mono", Courier, monospace;
    font-size: 12px;
-   line-height: 21px;
+   line-height: 21px !important;
 }
 
 .gist-it-php .gist-gutter {
