@@ -3,7 +3,7 @@
         <div class="gist-data">
             <div class="gist-gutter">{{gutter}}</div>
             <pre class="prettyprint">{{source}}</pre>
-            {{meta}}
         </div>
+        {{meta}}
     </div>
 </div>
