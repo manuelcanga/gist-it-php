@@ -48,14 +48,15 @@
 }
 
 .gist-it-php .blob-link {
-   float: right;
-   margin-right: 8px;
+   float: left;
+   margin-left: 8px;
 }
 
 .gist-it-php .blob-link a{
    /** avoid conflicts with host page */
    color: #666 !important;
    text-decoration: none !important;
+   font-size: 12px !important;
 }
 
 .gist-it-php .gist-file .gist-data {
