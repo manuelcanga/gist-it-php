@@ -69,10 +69,10 @@ class Embed
     public function getGutter():string
     {
 
-        $line_number = $this->request_file->getFileLineNumber();
+        $line_number = $this->request_file->getFileLineNumber() + 1;
 
         $gutter = '';
-        for ($i = 0; $i < $line_number; $i++) {
+        for ($i = 1; $i <= $line_number; $i++) {
             $gutter .= $i . '<br />';
         }
 
