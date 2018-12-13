@@ -88,7 +88,8 @@ class Embed
     public function getHost():string
     {
 
-        $protocol = (443 === $_SERVER[ 'SERVER_PORT' ]) ? 'https' : 'http';
+        $is_ssl   = (!empty($_SERVER['HTTPS']) && $_SERVER['HTTPS'] !== 'off') || (443 === $_SERVER[ 'SERVER_PORT' ]);
+        $protocol = $is_ssl? 'https' : 'http';
         $domain   = $_SERVER[ 'HTTP_HOST' ];
 
         return "{$protocol}://{$domain}";
