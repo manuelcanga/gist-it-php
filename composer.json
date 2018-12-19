@@ -1,0 +1,23 @@
+{
+    "name": "trasweb/gist-it-php",
+    "description": "Embed github file in your website",
+    "type": "project",
+    "license": "GPLv2",
+    "authors": [
+        {
+            "name": "Manuel Canga",
+            "email": "dev@trasweb.net"
+        }
+    ],
+    "require": {},
+    "require-dev": {
+	"jonnyw/php-phantomjs": "3.*",
+	"codeception/codeception": "^2.5",
+        "phpunit/phpunit": "^7.5"
+    },
+    "autoload-dev": {
+	    "classmap": [
+		"src"
+	    ]
+    }
+}
