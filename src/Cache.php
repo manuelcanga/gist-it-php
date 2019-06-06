@@ -11,6 +11,13 @@ class Cache
      */
     private $file = '';
 
+    /**
+     * Named construct. Instance a cache from a RequestFile.
+     *
+     * @param RequestFile $request_file
+     *
+     * @return Cache
+     */
     public static function fromRequestFIle(RequestFile $request_file):self
     {
 
@@ -25,12 +32,22 @@ class Cache
         $this->file = self::_PATH_ . '/' . $cache_id;
     }
 
+    /**
+     * Check if cache exists.
+     *
+     * @return bool
+     */
     public function exists():bool
     {
 
         return \file_exists($this->file);
     }
 
+    /**
+     * Retrieve cache.
+     *
+     * @return string
+     */
     public function get():string
     {
 
@@ -41,6 +58,13 @@ class Cache
         return '';
     }
 
+    /**
+     * Save a content as cache.
+     *
+     * @param string $content_for_caching
+     *
+     * @return bool|int
+     */
     public function save(string $content_for_caching)
     {
 
