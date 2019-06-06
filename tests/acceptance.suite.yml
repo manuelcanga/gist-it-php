@@ -9,7 +9,7 @@ modules:
   enabled:
   - Asserts
   - WebDriver:
-      url: http://test:80
+      url: http://gist-it-php.servidor:80
       browser: phantomjs
       port: 4444
       window_size: 1024x800
