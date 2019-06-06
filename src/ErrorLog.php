@@ -2,6 +2,11 @@
 
 namespace gist_it_php;
 
+/**
+ * Class ErrorLog
+ *
+ * Manage errors from gist-it-php app and transform they in log messages
+  */
 class ErrorLog
 {
 
@@ -10,34 +15,49 @@ class ErrorLog
         \error_reporting(E_ALL);
 
         set_error_handler(function (...$args) {
-
             $this->listenErrors(...$args);
         });
         set_exception_handler(function (...$args) {
-
             $this->listenExceptions(...$args);
         });
     }
 
-    public static function create()
+    /**
+     * Create a instance of ErrorLog
+     *
+     * @return ErrorLog
+     */
+    public static function create(): ErrorLog
     {
-
         static $errorlog;
 
-        return $errorlog??new ErrorLog();
+        return $errorlog ?? new ErrorLog();
     }
 
-    private function listenErrors(int $errno, string $errstr, string $errfile, int $errline)
+    /**
+     * Transform PHP errors to exceptions
+     *
+     * @param int    $errno
+     * @param string $errstr
+     * @param string $errfile
+     * @param int    $errline
+     *
+     * @throws \Exception
+     */
+    private function listenErrors(int $errno, string $errstr, string $errfile, int $errline): void
     {
-
         $message = "[{$errno}]: {$errstr} in {$errfile}:$errline";
 
         throw new \Exception($message);
     }
 
-    private function listenExceptions(\Exception $ex)
+    /**
+     * Transform exceptions to error_log messages
+     *
+     * @param \Exception $ex
+     */
+    private function listenExceptions(\Exception $ex): void
     {
-
         \error_log($ex->getMessage());
     }
 }
